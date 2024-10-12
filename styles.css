@@ -1,0 +1,85 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #ff6b6b, #f8e71c); /* Bright red to yellow gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6), 0 5px 10px rgba(0, 0, 0, 0.3); /* Darker shadow for stronger contrast */
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25); /* Slightly stronger white background */
+  backdrop-filter: blur(15px);
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-grid:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 10px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.85); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4), inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.calculator-grid > button:hover {
+  background-color: rgba(255, 255, 255, 1); 
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5), inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px); 
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.85); 
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.output:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.8); 
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
